@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: test_security_2
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_security_2
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secret: 123456789123456789123456789123456789123456789123456789
+  issuer: paint-store
+  access-token-expiration: 900000
+  refresh-token-expiration: 604800000
