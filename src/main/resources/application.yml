@@ -6,7 +6,7 @@ spring:
     name: test_security_2
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/test_security_2
+    url: jdbc:postgresql://localhost:5432/ test_security_2_
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
