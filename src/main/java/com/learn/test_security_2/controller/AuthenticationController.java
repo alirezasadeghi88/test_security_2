@@ -1,8 +1,6 @@
 package com.learn.test_security_2.controller;
 
-import com.learn.test_security_2.dto.LoginRequest;
-import com.learn.test_security_2.dto.LoginResponse;
-import com.learn.test_security_2.dto.RegisterRequest;
+import com.learn.test_security_2.dto.*;
 import com.learn.test_security_2.service.AuthenticationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +34,16 @@ public class AuthenticationController {
             @Valid @RequestBody LoginRequest request) {
 
         LoginResponse response = authenticationService.login(request);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/refresh-token")
+    public ResponseEntity<RefreshTokenResponse> refreshToken(
+            @Valid @RequestBody RefreshTokenRequest request) {
+
+        RefreshTokenResponse response =
+                authenticationService.refreshToken(request);
 
         return ResponseEntity.ok(response);
     }
