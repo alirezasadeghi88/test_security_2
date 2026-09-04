@@ -1,5 +1,6 @@
 package com.learn.test_security_2.controller;
 
+import com.learn.test_security_2.dto.LoginRequest;
 import com.learn.test_security_2.dto.LoginResponse;
 import com.learn.test_security_2.dto.RegisterRequest;
 import com.learn.test_security_2.service.AuthenticationService;
@@ -28,5 +29,14 @@ public class AuthenticationController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(response);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(
+            @Valid @RequestBody LoginRequest request) {
+
+        LoginResponse response = authenticationService.login(request);
+
+        return ResponseEntity.ok(response);
     }
 }
