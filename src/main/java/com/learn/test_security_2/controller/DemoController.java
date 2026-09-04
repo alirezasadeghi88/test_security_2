@@ -31,4 +31,12 @@ public class DemoController {
         return "Manager API";
 
     }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String admin() {
+
+        return "Admin API";
+
+    }
 }
