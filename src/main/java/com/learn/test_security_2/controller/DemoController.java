@@ -23,4 +23,12 @@ public class DemoController {
         return "Customer API";
 
     }
+
+    @GetMapping("/manager")
+    @PreAuthorize("hasRole('MANAGER')")
+    public String manager() {
+
+        return "Manager API";
+
+    }
 }
